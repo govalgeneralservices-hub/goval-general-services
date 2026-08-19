@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goval General Services</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header class="site-header">
+    <div class="logo">Goval General Services</div>
+
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#request-form">Request a Service</a>
+        <a href="#join-form">Join Our Network</a>
+    </nav>
+</header>
+<header>
+    <h1>Trusted Local Services, All in One Place</h1>
+
+    <p>Connecting Homeowners and Businesses with Trusted Local Professionals</p>
+
+    <button onclick="document.getElementById('request-form').scrollIntoView({behavior: 'smooth'})">Get a Free Quote</button>
+</header>
+
+<main>
+
+    <h2>Our Services</h2>
+<p class="services-intro">Find trusted local professionals for residential, commercial, maintenance and construction needs.</p>
+    <div class="services">
+
+        <div class="service-card">
+            <img src="imagens/HVAC.png" alt="HVAC service">
+            <h3>HVAC</h3>
+            <p>Heating, Cooling & Ventilation</p>
+        </div>
+
+        <div class="service-card">
+       <img src="imagens/plumbing.png" alt="Plumbing service">  
+            <h3>Plumbing</h3>
+            <p>Residential & Commercial</p>
+        </div>
+
+        <div class="service-card">
+        <img src="imagens/electrical.png" alt="Electrical service">    
+            <h3>Electrical</h3>
+            <p>Licensed Electricians</p>
+        </div>
+
+        <div class="service-card">
+         <img src="imagens/cleaning.png" alt="House Cleaning service">  alt="House Cleaning service"> 
+            <h3>House Cleaning</h3>
+            <p>Professional Cleaning Services</p>
+        </div>
+
+        <div class="service-card">
+          <img src="imagens/painting.png" alt="Painting service">  alt="Painting service">
+            <h3>Painting</h3>
+            <p>Interior & Exterior Painting</p>
+        </div>
+
+        <div class="service-card">
+            <img src="imagens/landscaping.png" alt="Landscaping service"> alt="Landscaping service">
+            <h3>Landscaping</h3>
+            <p>Outdoor Maintenance</p>
+        </div>
+
+    </div>
+
+    <section class="connection-section">
+
+    <h2>How Goval Can Help</h2>
+
+    <div class="connection-options">
+
+        <div class="connection-card">
+            <h3>Need a Service?</h3>
+            <p>
+                Find trusted local professionals for home,
+                business, maintenance and construction services.
+            </p>
+            <a href="#request-form" class="button-link">REquest a Service</a>
+        </div>
+
+        <div class="connection-card">
+            <h3>Are You a Professional?</h3>
+            <p>
+                Join the Goval network, connect with new clients
+                and grow your local business.
+            </p>
+            <button onclick="document.getElementById('join-form').scrollIntoView({behavior: 'smooth'})">Join Our Network</button>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="request-form" class="request-section">
+
+    <h2>Request a Service</h2>
+
+    <form class="service-form"
+    action="https://formsubmit.co/govalgeneralservices@gmail.com" method="POST">   
+    <input type="hidden" name="_subject" value="New Service Request - Goval General Services">
+    <input type="hidden" name="_captcha" value="false">
+ 
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+<label for="contact-method">Preferred Contact Method</label>
+<select id="contact-method" name="Preferred Contact Method" required>
+    <option value="">Select a contact method</option>
+    <option>Phone Call</option>
+    <option>Text Message</option>
+    <option>Email</option>
+    <option>WhatsApp</option>
+</select>
+<label for="urgency">When Do You Need the Service?</label>
+<select id="urgency" name="Service Urgency" required>
+    <option value="">Select a timeframe</option>
+    <option>As Soon as Possible</option>
+    <option>Within a Few Days</option>
+    <option>Within a Week</option>
+    <option>Flexible / Just Getting a Quote</option>
+</select>
+
+        <label for="service">Service Needed</label>
+        <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option>HVAC</option>
+            <option>Plumbing</option>
+            <option>Electrical</option>
+            <option>House Cleaning</option>
+            <option>Painting</option>
+            <option>Landscaping</option>
+            <option>Other Services</option>
+        </select>
+
+        <label for="location">City or ZIP Code</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="details">Describe the Service</label>
+        <textarea id="details" name="details" rows="5" required></textarea>
+
+        <button type="submit">Submit Request</button>
+
+    </form>
+
+</section>
+<section id="join-form" class="request-section">
+
+    <h2>Join the Goval Network</h2>
+
+    <form class="service-form"
+          action="https://formsubmit.co/govalgeneralservices@gmail.com"
+          method="POST">
+
+        <input type="hidden" name="_subject" value="New Professional Application - Goval General Services">
+        <input type="hidden" name="_captcha" value="false">
+
+        <label for="pro-name">Full Name</label>
+        <input type="text" id="pro-name" name="Professional Name" required>
+
+        <label for="business-name">Business Name</label>
+        <input type="text" id="business-name" name="Business Name">
+
+        <label for="pro-phone">Phone Number</label>
+        <input type="tel" id="pro-phone" name="Phone" required>
+
+        <label for="pro-email">Email</label>
+        <input type="email" id="pro-email" name="Email" required>
+
+        <label for="trade">Trade / Service</label>
+<select id="trade" name="Trade or Service" required>
+    <option value="">Select your trade</option>
+    <option>HVAC</option>
+    <option>Plumbing</option>
+    <option>Electrical</option>
+    <option>House Cleaning</option>
+    <option>Painting</option>
+    <option>Landscaping</option>
+    <option>General Construction</option>
+    <option>Other Services</option>
+</select>
+       <label for="license-status">License / Insurance Status</label>
+<select id="license-status" name="License / Insurance Status" required>
+    <option value="">Select an option</option>
+    <option>Licensed & Insured</option>
+    <option>Licensed</option>
+    <option>Insured</option>
+    <option>Neither / Not Required for My Service</option>
+</select>
+ 
+
+        <label for="service-area">City / Service Area</label>
+        <input type="text" id="service-area" name="Service Area" required>
+
+        <label for="experience">Tell Us About Your Experience</label>
+        <textarea id="experience" name="Experience" rows="5" required></textarea>
+
+        <button type="submit">Join Our Network</button>
+
+    </form>
+
+</section>
+</main>
+
+</body>
+</html>
