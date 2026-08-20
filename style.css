@@ -71,6 +71,7 @@ button:hover{
     position: relative;
     overflow: hidden;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .service-card:hover {
