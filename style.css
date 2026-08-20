@@ -629,3 +629,15 @@ font-size: 22px;
     border-radius: 12px;
     font-weight: bold;
 }
+
+/* Highlight selected service */
+#service:valid {
+    border: 2px solid #2f80ed;
+    background-color: #eef6ff;
+    font-weight: 600;
+}
+
+/* Make service cards feel clickable */
+.service-card {
+    cursor: pointer;
+}
