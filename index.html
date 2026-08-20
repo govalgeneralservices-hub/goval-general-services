@@ -36,37 +36,37 @@
 <p class="services-intro">Find trusted local professionals for residential, commercial, maintenance and construction needs.</p>
     <div class="services">
 
-        <div class="service-card">
+        <div class="service-card" onclick="selectService('HVAC')">
             <img src="imagens/HVAC.png" alt="HVAC service">
             <h3>HVAC</h3>
             <p>Heating, Cooling & Ventilation</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="selectService('Plumbing')">
        <img src="imagens/plumbing.png" alt="Plumbing service">  
             <h3>Plumbing</h3>
             <p>Residential & Commercial</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="selectService('Electrical')">
         <img src="imagens/electrical.png" alt="Electrical service">    
             <h3>Electrical</h3>
             <p>Licensed Electricians</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="selectService('House Cleaning')">
          <img src="imagens/cleaning.png" class="cleaning-img" alt="House Cleaning service"> 
             <h3>House Cleaning</h3>
             <p>Professional Cleaning Services</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="selectService('Painting')">
           <img src="imagens/painting.png" class="painting-img" alt="Painting service">  
             <h3>Painting</h3>
             <p>Interior & Exterior Painting</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="selectService('Landscaping')">
             <img src="imagens/landscaping.png" class="landscaping-img" alt="Landscaping service"> 
             <h3>Landscaping</h3>
             <p>Outdoor Maintenance</p>
@@ -287,6 +287,20 @@ servicesLink.addEventListener('click', function (event) {
         block: 'start'
     });
 });
+
+function selectService(service) {
+    const serviceSelect = document.getElementById('service');
+    if (serviceSelect) {
+        serviceSelect.value = service;
+    }
+
+    const requestSection = document.getElementById('request-form');
+    if (requestSection) {
+        requestSection.style.display = 'block';
+        requestSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 </script>
 </body>
 </html>
+
