@@ -62,7 +62,7 @@ button:hover{
 
 .service-card {
     background: linear-gradient(145deg, #ffffff, #eaf2f8);
-    padding: 20px;
+    padding: 25px;
     border-radius: 18px;
     border: 1px solid rgba(15, 76, 129, 0.12);
     border-top: 3px solid #0a4d8c;
@@ -86,13 +86,13 @@ button:hover{
     margin-bottom: 15px;
 }
 .cleaning-img {
-    transform: scale(2.2);
+    transform: scale(2.7);
 }
 .painting-img {
-    transform: scale(1.7);
+    transform: scale(1.9);
 }
 .landscaping-img {
-    transform: scale(2.0);
+    transform: scale(2.8);
 }
 
 .service-card:hover{
@@ -304,15 +304,20 @@ font-size: 22px;
     }
 
     .site-header nav {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px 12px;
+    width: 100%;
+    
+ }
 
-    .site-header nav a {
-        display: block;
-        padding: 8px;
-    }
+   .site-header nav a {
+    display: block;
+    padding: 6px 4px;
+    text-align: center;
+    font-size: 14px;
+}
+    
 
     .site-header .logo {
         font-size: 20px;
@@ -324,8 +329,30 @@ font-size: 22px;
 
 .service-card {
     width: 100%;
+    min-height: auto;
+    padding: 14px;
+    box-sizing: border-box;
+}
+.service-card img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+}
+
+.cleaning-img {
+    transform: scale(1.6);
+}
+
+.painting-img {
+    transform: scale(1.35);
+}
+
+.landscaping-img {
+    transform: scale(1.6);
 }
 }
+
 
 .hero {
     background: linear-gradient(135deg, #0f172a, #0f4c81, #0a84c6);
