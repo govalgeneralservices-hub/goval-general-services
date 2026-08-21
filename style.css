@@ -650,12 +650,40 @@ font-size: 22px;
     margin-top: 15px;
 }
 
-.social-links span, .social-links a {
-    padding: 9px 16px;
-    background: #0d84c6;
+.social-links a {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
     color: white;
-    border-radius: 12px;
-    font-weight: bold;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-links a[aria-label="Instagram"] {
+    color: #E4405F;
+}
+
+.social-links a[aria-label="Facebook"] {
+    color: #1877F2;
+}
+
+.social-links a[aria-label="YouTube"] {
+    color: #FF0000;
+}
+
+.social-links a:hover {
+    transform: scale(1.08);
+}
+
+.social-links svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
 }
 
 /* Highlight selected service */
