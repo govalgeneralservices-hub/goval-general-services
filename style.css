@@ -86,13 +86,13 @@ button:hover{
     margin-bottom: 15px;
 }
 .cleaning-img {
-    transform: scale(2.7);
+    transform: scale(2.2);
 }
 .painting-img {
-    transform: scale(1.9);
+    transform: scale(1.7);
 }
 .landscaping-img {
-    transform: scale(2.8);
+    transform: scale(2.2);
 }
 
 .service-card:hover{
