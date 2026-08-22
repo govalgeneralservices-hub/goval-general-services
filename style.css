@@ -132,7 +132,7 @@ button:hover{
     transform: translateY(-8px);
     box-shadow: 0 16px 35px rgba(15, 23, 42, 0.20);
 }
-}
+
 
 .connection-card h3 {
     color: #0a4d8c;
@@ -671,7 +671,7 @@ font-size: 22px;
     height: 24px;
     fill: currentColor;
 }
-}
+
 
 /* Highlight selected service */
 #service:valid {
