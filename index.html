@@ -116,7 +116,7 @@
 
     <h2>Request a Service</h2>
 
-    <form class="service-form"
+    <form class="service-form" enctype="multipart/form-data"
     action="https://formsubmit.co/govalgeneralservices@gmail.com" method="POST">   
     <input type="hidden" name="_subject" value="New Service Request - Goval General Services">
     <input type="hidden" name="_captcha" value="false">
@@ -165,7 +165,11 @@
 
         <label for="details">Describe the Service</label>
         <textarea id="details" name="details" rows="5" required></textarea>
-
+        <label for="photo">Upload Photo (Optional)</label>
+<input type="file"
+       id="photo"
+       name="attachment"
+       accept="image/png, image/jpeg">
         <button type="submit">Submit Request</button>
 
     </form>
