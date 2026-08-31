@@ -119,7 +119,7 @@
 
     <h2>Request a Service</h2>
 
-    <form class="service-form" enctype="multipart/form-data"
+    <form id="customer-service-form" class="service-form" enctype="multipart/form-data"
     action="https://formsubmit.co/govalgeneralservices@gmail.com" method="POST">   
     <input type="hidden" name="_subject" value="New Service Request - Goval General Services">
     <input type="hidden" name="_captcha" value="false">
@@ -344,6 +344,26 @@ function selectService(service) {
 <a href="https://wa.me/15089331540" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
     WhatsApp
 </a>
+
+<script>
+const customerForm = document.getElementById("customer-service-form");
+
+customerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(customerForm);
+
+    fetch("https://script.google.com/macros/s/AKfycbxAjuDHh-4qnUDpXHzWc9I3w-f2Q9ebEL6rnxEFf4jfdBBwlZ_pP95g8OxqTG_aEQIXkA/exec", {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+    })
+    .finally(() => {
+        customerForm.submit();
+    });
+});
+</script>
+
 </body>
 </html>
 
