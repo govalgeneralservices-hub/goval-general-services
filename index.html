@@ -182,7 +182,7 @@
 
     <h2>Join the Goval Network</h2>
 
-    <form class="service-form" 
+    <form id="professional-network-form" class="service-form" 
           action="https://formsubmit.co/govalgeneralservices@gmail.com"
           method="POST">
 
@@ -362,6 +362,28 @@ customerForm.dataset.submitting = "true";
     })
     .finally(() => {
         customerForm.submit();
+    });
+});
+</script>
+
+<script>
+const professionalForm = document.getElementById("professional-network-form");
+
+professionalForm.addEventListener("submit", function (event) {
+    if (professionalForm.dataset.submitting === "true") return;
+    professionalForm.dataset.submitting = "true";
+
+    event.preventDefault();
+
+    const professionalData = new FormData(professionalForm);
+
+    fetch("https://script.google.com/macros/s/AKfycbxAjuDHh-4qnUDpXHzWc9I3w-f2Q9ebEL6rnxEFf4jfdBBwlZ_pP95g8OxqTG_aEQIXkA/exec", {
+        method: "POST",
+        body: professionalData,
+        mode: "no-cors"
+    })
+    .finally(() => {
+        professionalForm.submit();
     });
 });
 </script>
