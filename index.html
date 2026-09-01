@@ -349,6 +349,8 @@ function selectService(service) {
 const customerForm = document.getElementById("customer-service-form");
 
 customerForm.addEventListener("submit", function (event) {
+    if (customerForm.dataset.submitting === "true") return;
+customerForm.dataset.submitting = "true";
     event.preventDefault();
 
     const formData = new FormData(customerForm);
