@@ -394,8 +394,10 @@ customerForm.dataset.submitting = "true";
         body: formData,
         mode: "no-cors"
     })
-    .finally(() => {
-        customerForm.submit();
+    .then(function () {
+        HTMLFormElement.prototype.submit.call(customerForm);
+    }, function () {
+        HTMLFormElement.prototype.submit.call(customerForm);
     });
 });
 </script>
@@ -416,8 +418,10 @@ professionalForm.addEventListener("submit", function (event) {
         body: professionalData,
         mode: "no-cors"
     })
-    .finally(() => {
-        professionalForm.submit();
+    .then(function () {
+        HTMLFormElement.prototype.submit.call(professionalForm);
+    }, function () {
+        HTMLFormElement.prototype.submit.call(professionalForm);
     });
 });
 </script>
