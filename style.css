@@ -717,3 +717,224 @@ font-size: 22px;
         right: 12px;
     }
 }
+
+/* ===== HOMEPAGE CLARITY REFRESH — Sep 30, 2026 ===== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    max-width: 1100px;
+    padding: 42px 24px 60px;
+}
+
+#services {
+    text-align: center;
+    color: #123047;
+    font-size: clamp(1.9rem, 4vw, 2.4rem);
+    margin: 0;
+}
+
+.services-intro {
+    max-width: 720px;
+    margin: 12px auto 0;
+    text-align: center;
+    color: #5c6670;
+    line-height: 1.6;
+}
+
+.hero {
+    padding: clamp(76px, 10vw, 118px) 20px 72px;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px;
+    background: rgba(7,17,31,.35);
+    font-size: 12px !important;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.hero h1 {
+    max-width: 900px;
+    margin: 0 auto 18px;
+}
+
+.hero-subtitle {
+    max-width: 760px;
+    margin: 0 auto 26px !important;
+    line-height: 1.65;
+}
+
+.hero-actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.hero-actions button {
+    transform: none;
+}
+
+.hero-secondary {
+    display: inline-block;
+    padding: 14px 24px;
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    background: rgba(7,17,31,.34);
+    backdrop-filter: blur(4px);
+    transition: transform .2s ease, background .2s ease;
+}
+
+.hero-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(7,17,31,.55);
+}
+
+.hero-audience {
+    margin: 20px auto 0 !important;
+    font-size: 14px !important;
+    opacity: .82 !important;
+}
+
+.how-it-works-section {
+    margin: 56px auto 0;
+    padding: 48px 34px;
+    text-align: center;
+    background: linear-gradient(145deg, #07111f, #0d2742);
+    color: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 18px 45px rgba(15,23,42,.18);
+}
+
+.section-kicker {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    color: #7dd3fc;
+}
+
+.how-it-works-section h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+}
+
+.how-intro {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.82);
+}
+
+.how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 0 0 30px;
+}
+
+.how-step {
+    padding: 26px 20px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 16px;
+}
+
+.how-step span {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 14px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #0a84c6;
+    font-weight: 800;
+}
+
+.how-step h3 {
+    margin: 0 0 10px;
+    font-size: 19px;
+}
+
+.how-step p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255,255,255,.78);
+}
+
+.how-it-works-section > button {
+    background: linear-gradient(135deg, #52d100, #34b400);
+    box-shadow: 0 8px 24px rgba(0,0,0,.22);
+    font-weight: 800;
+}
+
+.service-card h3 {
+    font-size: 21px;
+    margin-top: 0;
+}
+
+.about-section,
+.contact-section,
+.connection-card,
+.request-section {
+    border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+    .site-header nav {
+        gap: 16px;
+    }
+
+    .how-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 30px 16px 50px;
+    }
+
+    .hero {
+        padding: 64px 18px 54px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: 16px !important;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions button,
+    .hero-secondary {
+        width: min(100%, 320px);
+        box-sizing: border-box;
+    }
+
+    .how-it-works-section {
+        padding: 38px 18px;
+        border-radius: 18px;
+    }
+}
