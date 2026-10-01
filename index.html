@@ -380,52 +380,61 @@ function selectService(service) {
 </a>
 
 <script>
-const customerForm = document.getElementById("customer-service-form");
+(function () {
+    var webhook = "https://script.google.com/macros/s/AKfycbxAjuDHh-4qnUDpXHzWc9I3w-f2Q9ebEL6rnxEFf4jfdBBwlZ_pP95g8OxqTG_aEQIXkA/exec";
 
-customerForm.addEventListener("submit", function (event) {
-    if (customerForm.dataset.submitting === "true") return;
-customerForm.dataset.submitting = "true";
-    event.preventDefault();
+    function connectForm(formId) {
+        var form = document.getElementById(formId);
+        var button = form.querySelector('button[type="submit"]');
+        var originalLabel = button.textContent;
+        var status = document.createElement("p");
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+        form.appendChild(status);
 
-    const formData = new FormData(customerForm);
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (form.dataset.submitting === "true") return;
+            form.dataset.submitting = "true";
+            button.disabled = true;
+            button.textContent = "Sending...";
+            status.textContent = "Please wait while we send your request.";
+            var handedOff = false;
+            var timer;
 
-    fetch("https://script.google.com/macros/s/AKfycbxAjuDHh-4qnUDpXHzWc9I3w-f2Q9ebEL6rnxEFf4jfdBBwlZ_pP95g8OxqTG_aEQIXkA/exec", {
-        method: "POST",
-        body: formData,
-        mode: "no-cors"
-    })
-    .then(function () {
-        HTMLFormElement.prototype.submit.call(customerForm);
-    }, function () {
-        HTMLFormElement.prototype.submit.call(customerForm);
-    });
-});
-</script>
+            function submitEmailForm() {
+                if (handedOff) return;
+                handedOff = true;
+                clearTimeout(timer);
+                try {
+                    HTMLFormElement.prototype.submit.call(form);
+                } catch (error) {
+                    form.dataset.submitting = "false";
+                    button.disabled = false;
+                    button.textContent = originalLabel;
+                    status.textContent = "We could not finish the submission. Your request may already have been received. Please contact Goval before sending it again.";
+                }
+            }
 
-<script>
-const professionalForm = document.getElementById("professional-network-form");
+            // Google may receive the request while its cross-origin response stalls.
+            // Continue to the email service instead of leaving the form waiting forever.
+            timer = setTimeout(submitEmailForm, 20000);
+            try {
+                fetch(webhook, {
+                    method: "POST",
+                    body: new FormData(form),
+                    mode: "no-cors"
+                }).then(submitEmailForm, submitEmailForm);
+            } catch (error) {
+                submitEmailForm();
+            }
+        });
+    }
 
-professionalForm.addEventListener("submit", function (event) {
-    if (professionalForm.dataset.submitting === "true") return;
-    professionalForm.dataset.submitting = "true";
-
-    event.preventDefault();
-
-    const professionalData = new FormData(professionalForm);
-
-    fetch("https://script.google.com/macros/s/AKfycbxAjuDHh-4qnUDpXHzWc9I3w-f2Q9ebEL6rnxEFf4jfdBBwlZ_pP95g8OxqTG_aEQIXkA/exec", {
-        method: "POST",
-        body: professionalData,
-        mode: "no-cors"
-    })
-    .then(function () {
-        HTMLFormElement.prototype.submit.call(professionalForm);
-    }, function () {
-        HTMLFormElement.prototype.submit.call(professionalForm);
-    });
-});
+    connectForm("customer-service-form");
+    connectForm("professional-network-form");
+}());
 </script>
 
 </body>
 </html>
-
