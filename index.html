@@ -153,12 +153,7 @@
 
     <h2>Request a Service</h2>
 
-    <form id="customer-service-form" class="service-form" enctype="multipart/form-data"
-    action="https://formsubmit.co/govalgeneralservices@gmail.com" method="POST">   
-    <input type="hidden" name="_subject" value="New Service Request - Goval General Services">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://govalgeneralservices.com/thank-you.html">
- 
+    <form id="customer-service-form" class="service-form" enctype="multipart/form-data"> 
 
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required>
@@ -216,14 +211,7 @@
 
     <h2>Join the Goval Network</h2>
 
-    <form id="professional-network-form" class="service-form" 
-          action="https://formsubmit.co/govalgeneralservices@gmail.com"
-          method="POST">
-
-        <input type="hidden" name="_subject" value="New Professional Application - Goval General Services">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://govalgeneralservices.com/thank-you.html">
-
+    <form id="professional-network-form" class="service-form">
         <label for="pro-name">Full Name</label>
         <input type="text" id="pro-name" name="Professional Name" required>
 
@@ -399,34 +387,28 @@ function selectService(service) {
             button.disabled = true;
             button.textContent = "Sending...";
             status.textContent = "Please wait while we send your request.";
-            var handedOff = false;
+            var redirected = false;
             var timer;
 
-            function submitEmailForm() {
-                if (handedOff) return;
-                handedOff = true;
+            function showThankYou() {
+                if (redirected) return;
+                redirected = true;
                 clearTimeout(timer);
-                try {
-                    HTMLFormElement.prototype.submit.call(form);
-                } catch (error) {
-                    form.dataset.submitting = "false";
-                    button.disabled = false;
-                    button.textContent = originalLabel;
-                    status.textContent = "We could not finish the submission. Your request may already have been received. Please contact Goval before sending it again.";
-                }
+                window.location.href = "https://govalgeneralservices.com/thank-you.html";
             }
 
-            // Google may receive the request while its cross-origin response stalls.
-            // Continue to the email service instead of leaving the form waiting forever.
-            timer = setTimeout(submitEmailForm, 20000);
+            // Apps Script handles CRM storage and email notifications.
+            // Because the request is cross-origin/no-cors, redirect after handoff.
+            // The timeout prevents the visitor from being stuck if the response stalls.
+            timer = setTimeout(showThankYou, 20000);
             try {
                 fetch(webhook, {
                     method: "POST",
                     body: new FormData(form),
                     mode: "no-cors"
-                }).then(submitEmailForm, submitEmailForm);
+                }).then(showThankYou, showThankYou);
             } catch (error) {
-                submitEmailForm();
+                showThankYou();
             }
         });
     }
